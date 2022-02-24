@@ -7,21 +7,15 @@ Sample Output 1:
 
 int duplicateNumber(int *arr, int size)
 {
-  int i = 0;
-    while (i < size){
-    int flag = 0;
-        int uniquee = arr[i];
-        int j = i+1;
-        while (j < size){
-        if (uniquee == arr[j]){
-            flag = 1;
-        }
-        j++;
-     }
-     if (flag == 1){
-            return uniquee;
-        }
-        i++;
+  for (int i = 0; i < size; i++)
+  {
+    for (int j = i + 1; j < size; j++)
+    {
+      if (arr[i] == arr[j])
+      {
+        return arr[i];
+      }
     }
-  return 0;
+  }
+  return -1;
 }
