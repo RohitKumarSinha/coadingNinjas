@@ -8,16 +8,19 @@ Sample Output 1:
 
 void bubbleSort(int *input, int size)
 {
-    //Write your code here
-     int k=0;
-  while( k < size-1){    // for n-1 round to sort the array
-        for(int i=0;i<size-1;i++){    // for 1 round
-            if(input[i]>input[i+1]){
+    // Write your code here
+    int last = size - 1; // we have to traverse n - times
+    while (last >= 0)
+    { // after every round largest element will go their place
+        for (int i = 0; i < last; i++)
+        { // checking every element that its next index element is smaller or not
+            if (input[i] > input[i + 1])
+            {
                 int temp = input[i];
-                input[i] = input[i+1];
-                input[i+1] = temp;
+                input[i] = input[i + 1];
+                input[i + 1] = temp;
             }
         }
-      k++;
-  }
+        last = last - 1; // decreasing the size because after every round last element go their right place
+    }
 }
