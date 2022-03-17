@@ -4,47 +4,39 @@ Sample Input 1 :
 Sample Output 1 :
 12 */
 
-#include<iostream>
+#include <iostream>
 using namespace std;
+int main()
+{
+   int n;
+   cin >> n;
 
-int main() {
-	// Write your code here
-    int n;
-    int countt = 0;
-    cin >> n;
+   int mul = 1;
+   int res = 0;
+   // if the end of number is one then add the value other wise don't add
+   if (n % 10 == 1)
+   {
+      res++;
+      n = n / 10;
+   }
+   else
+   {
+      n = n / 10;
+   }
 
-    int result = 0;
-    int lastdigit;
+   while (n > 0)
+   {
+      // every time increase the power of 2 by 1
+      mul = mul * 2;
+      // if we have 1 at the end then add that value into result
+      if (n % 10 == 1)
+      {
+         res = res + mul;
+      }
+      // every time short the number
+      n = n / 10;
+   }
 
-    lastdigit = n % 10;
-    if (lastdigit == 1) {
-       result += 1;
-       n = n / 10;
-       countt++;
-    }
-
-    while (n > 0){
-       lastdigit = n % 10;
-       if (lastdigit == 0){
-          result = result + 0;
-          countt++;
-          n = n / 10;
-       }
-       else {
-          int j = 1;
-          int sum = 1;
-          while (j <= countt){
-             sum = sum * 2;
-             j++;
-          }
-          result += sum;
-          countt++;
-          n = n / 10;
-       }
-    }
-
-    cout << result;
-
-    return 0;
-	
+   cout << res;
+   return 0;
 }
