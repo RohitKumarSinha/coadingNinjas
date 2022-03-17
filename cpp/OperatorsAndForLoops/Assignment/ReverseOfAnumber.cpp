@@ -7,21 +7,23 @@ Sample Output 1 :
 
 #include <iostream>
 using namespace std;
-int main() {
-    int n;
-    int lastDigit;
-    cin >> n;
+int main()
+{
+  int n;
+  cin >> n;
 
-    lastDigit = n % 10;
-    while (lastDigit == 0){
-      n = n / 10;
-      lastDigit = n % 10;
-    }
+  // zero doesn't come first after reversing the number
+  while (n % 10 == 0)
+  {
+    n = n / 10;
+  }
 
-     while (n > 0){
-        cout << n % 10;
-        n = n / 10;
-     }
+  while (n > 0)
+  {
+    int res = n % 10;
+    cout << res;
+    n = n / 10;
+  }
 
-    return 0;
+  return 0;
 }
