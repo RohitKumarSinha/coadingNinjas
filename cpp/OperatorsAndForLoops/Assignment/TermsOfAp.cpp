@@ -12,24 +12,23 @@ Sample Output 1 :
 
 #include <iostream>
 using namespace std;
-int main() {
+int main()
+{
     int n;
-    int res = 0;
     cin >> n;
 
-    int i = 1;
-    int j = 1;
-    while (i <= n){
-    if (n <= 1 || n >= 1000){
-       break;
-    }
-        res = 3 * j + 2;
-        if (res % 4 != 0){
-            cout << res << ' ';
-            i++;
+    int count = 1;
+    while (count <= n)
+    {
+        int res = (3 * count) + 2;
+        if (res % 4 == 0)
+        {
+            n++;
         }
-        j++;
+        else
+        {
+            cout << res << " ";
+        }
+        count++;
     }
-
-    return 0;
 }
