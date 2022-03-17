@@ -20,11 +20,13 @@ int main()
     int count = 1;
     while (count <= n)
     {
+        // checking whether if res if divide by 4 then increment the n value
         int res = (3 * count) + 2;
         if (res % 4 == 0)
         {
             n++;
         }
+        // if not print the res value
         else
         {
             cout << res << " ";
