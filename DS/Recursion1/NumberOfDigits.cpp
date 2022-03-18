@@ -7,12 +7,13 @@ Sample Output 1 :
 3 */
 
 int small = 0;
-int count(int n){
-    if (n != 0){
-      small++;
-    int ans = count(n/10);
-   }
-   else {
-     return small;
-   }
+int count(int n)
+{
+  if (n <= 0)
+  {
+    return 0;
+  }
+
+  // everytime decrease the number by digit 1 and increment the value in res when function call everytime
+  int res = 1 + count(n / 10);
 }
