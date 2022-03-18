@@ -7,14 +7,17 @@ Sample Input 1 :
 Sample Output 1 :
 true */
 
-bool checkNumber(int input[], int size, int x) {
-  
-    if(size==0)
+bool checkNumber(int input[], int size, int x)
+{
+
+    // if we dont find the x in array return false
+    if (size == 0)
         return false;
-    
-    if(input[0]==x)
+
+    // if we find the x in array return true
+    if (input[0] == x)
         return true;
-    
-    bool checksmaller= checkNumber(input +1,size-1,x);
-    return checksmaller;
+
+    // everytime we decrease input size and array size and store the value in check
+    bool check = checkNumber(input + 1, size - 1, x);
 }
