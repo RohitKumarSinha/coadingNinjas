@@ -5,13 +5,14 @@ Sample Input 1 :
 Sample Output 1 :
 81 */
 
-int power(int x, int n) {
-    
-      if (n != 0){
-          return x*(power(x, n-1));
-      } else {
-          return 1;
-      }
+int power(int x, int n)
+{
 
+    if (n == 0)
+    {
+        return 1;
+    }
+
+    // every time x is multiply by the previous result and return the value to previous function
+    int res = x * (power(x, n - 1));
 }
-
