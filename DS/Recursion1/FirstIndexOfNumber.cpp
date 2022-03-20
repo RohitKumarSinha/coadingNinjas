@@ -10,19 +10,30 @@ Sample Input :
 Sample Output :
 1 */
 
-int firstIndex(int input[], int size, int x) {
+int firstIndex(int input[], int size, int x)
+{
 
-    if (  size < 1 )
-    {        
+    if (size == 0)
+    {
         return -1;
     }
-    else if ( input[0] == x)
+
+    // if we find the index at first position return  0
+    if (input[0] == x)
     {
         return 0;
-    }        
+    }
+
+    // every time recursion is called by each input value and check that value with x
+    int res = 1 + firstIndex(input + 1, size - 1, x);
+    // if the entire array searched and result is not found then it return -1 and we add 1 so it becomes 0
+    // so we check if the entire array searched and our value is not found then return -1 other wise result
+    if (res == 0)
+    {
+        return -1;
+    }
     else
-    {        
-        int i = firstIndex( input + 1, size - 1, x );
-        return i == - 1 ? i : i + 1;
-    }    
+    {
+        return res;
+    }
 }
